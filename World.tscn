@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://props/gravestone_1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://props/Plateau.tscn" type="PackedScene" id=2]
+[ext_resource path="res://meshes/Barn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/simple_fpsplayer/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://props/DeadTree.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="World" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.14355, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.988699, 0.101001, -0.110785, 0.068158, 0.355352, 0.932244, 0.133525, -0.92926, 0.344452, -15.3981, -8.19468, 22.2377 )
+light_energy = 0.05
+__meta__ = {
+"volumetric": 1.0
+}
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.6377, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 100, 0, 0, 0, 5, 0, 0, 0, 100, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Plateau" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.8415, 4.20433, -34.7186 )
+
+[node name="Barn" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -29.859 )
+
+[node name="DeadTree" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 61.6738, 0, 3.85683 )
+
+[node name="DeadTree7" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.365159, 0, -0.341554, 0, 1, 0, 0.341554, 0, 0.365159, 74.3134, -36.4379, -44.5658 )
+
+[node name="DeadTree2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 91.0182, 0, 45.2806 )
+
+[node name="DeadTree5" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.35, 91.0182, 0, 2.34996 )
+
+[node name="DeadTree6" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.16054, 0, 0.2683, 0, 0.1, 0, -0.191643, 0, 0.224756, 61.6519, 0, 65.0585 )
+
+[node name="DeadTree3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.321614, 0, 0.382837, 0, 0.358849, 0, -0.382837, 0, 0.321614, -25.6178, -23.4548, 45.3795 )
+
+[node name="DeadTree4" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.321614, 0, 0.382837, 0, 1, 0, -0.382837, 0, 0.321614, 41.2506, -23.7015, 43.9726 )
+
+[node name="gravestone_1" parent="." instance=ExtResource( 1 )]
+transform = Transform( 5.19946, 0, 0, 0, 1, 0, 0, 0, 1, -18, 6.84654, -16.5926 )

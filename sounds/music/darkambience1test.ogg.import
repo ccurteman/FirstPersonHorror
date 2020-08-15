@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/darkambience1test.ogg-5bc0cdd6610207026a0895989ae0c9f8.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/darkambience1test.ogg"
+dest_files=[ "res://.import/darkambience1test.ogg-5bc0cdd6610207026a0895989ae0c9f8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

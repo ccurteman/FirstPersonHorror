@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/simple_fpsplayer/Player.gd" type="Script" id=1]
+[ext_resource path="res://sounds/music/darkambience1test.wav" type="AudioStream" id=2]
+[ext_resource path="res://sounds/fx/percussion1.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/fx/percussion3.wav" type="AudioStream" id=4]
+[ext_resource path="res://sounds/music/nightambience1.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/fx/percussion4.wav" type="AudioStream" id=6]
+[ext_resource path="res://sounds/fx/breathingloop1.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/fx/percussion5.wav" type="AudioStream" id=8]
+[ext_resource path="res://sounds/fx/percussion2.wav" type="AudioStream" id=9]
+
+[sub_resource type="CapsuleShape" id=1]
+height = 2.0
+
+[sub_resource type="ProceduralSky" id=2]
+sky_top_color = Color( 0, 0, 0, 1 )
+sky_horizon_color = Color( 0.298039, 0.298039, 0.298039, 1 )
+ground_bottom_color = Color( 0, 0, 0, 1 )
+ground_horizon_color = Color( 0.188235, 0.188235, 0.188235, 1 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 2
+background_sky = SubResource( 2 )
+fog_color = Color( 0.117647, 0.129412, 0.227451, 1 )
+fog_sun_color = Color( 0.807843, 1, 0.00784314, 1 )
+fog_sun_amount = 0.48
+fog_depth_end = 2132.8
+fog_height_enabled = true
+dof_blur_far_enabled = true
+dof_blur_far_distance = 245.19
+dof_blur_far_transition = 113.8
+dof_blur_far_amount = 0.38
+dof_blur_near_enabled = true
+dof_blur_near_quality = 0
+
+[node name="Player" type="KinematicBody"]
+input_ray_pickable = false
+script = ExtResource( 1 )
+
+[node name="collision_body" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="rotation_helper" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="Camera" type="Camera" parent="rotation_helper"]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
+keep_aspect = 0
+environment = SubResource( 3 )
+doppler_tracking = 2
+current = true
+fov = 60.0
+far = 500.0
+
+[node name="Flashlight" type="SpotLight" parent="rotation_helper"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+visible = false
+light_energy = 3.0
+light_bake_mode = 0
+spot_range = 10.0
+spot_angle = 16.079
+
+[node name="playerfeet" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, -2.2, 0 )
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Chase" type="Node" parent="Audio"]
+
+[node name="Chase1" type="AudioStreamPlayer" parent="Audio/Chase"]
+stream = ExtResource( 3 )
+
+[node name="Chase2" type="AudioStreamPlayer" parent="Audio/Chase"]
+stream = ExtResource( 9 )
+
+[node name="Chase3" type="AudioStreamPlayer" parent="Audio/Chase"]
+stream = ExtResource( 4 )
+
+[node name="Chase4" type="AudioStreamPlayer" parent="Audio/Chase"]
+stream = ExtResource( 6 )
+
+[node name="Chase5" type="AudioStreamPlayer" parent="Audio/Chase"]
+stream = ExtResource( 8 )
+
+[node name="Ambient" type="Node" parent="Audio"]
+
+[node name="Dark" type="AudioStreamPlayer" parent="Audio/Ambient"]
+stream = ExtResource( 2 )
+
+[node name="Night" type="AudioStreamPlayer" parent="Audio/Ambient"]
+stream = ExtResource( 5 )
+
+[node name="FX" type="Node" parent="Audio"]
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="Audio/FX"]
+
+[node name="Breath" type="AudioStreamPlayer" parent="Audio/FX"]
+stream = ExtResource( 7 )

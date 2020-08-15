@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/darkambience1test.wav-a87794c2d6bd95f9cab3ba5066287535.sample"
+
+[deps]
+
+source_file="res://sounds/music/darkambience1test.wav"
+dest_files=[ "res://.import/darkambience1test.wav-a87794c2d6bd95f9cab3ba5066287535.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/percussion5.wav-7253517d89bde3fb12779c0fbb997598.sample"
+
+[deps]
+
+source_file="res://sounds/fx/percussion5.wav"
+dest_files=[ "res://.import/percussion5.wav-7253517d89bde3fb12779c0fbb997598.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
